@@ -5,7 +5,7 @@ and fall. The user can change the animation state of the character using a dropd
 
 ### Preview
 
-[Image](images/preview.png)
+![Image](images/preview.png)
 
 ### Instructions
 
