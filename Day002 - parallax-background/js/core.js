@@ -2,8 +2,25 @@ const canvas = document.querySelector("#canvas1");
 const ctx = canvas.getContext("2d");
 const CANVAS_HEIGHT = canvas.height = 700;
 const CANVAS_WIDTH = canvas.width = 800;
+let gameSpeed = 10;
 
-let gameSpeed = 5;
+const gameSpeedSlider = document.querySelector("#gameSpeed");
+const gameSpeedSpan = document.querySelector("#speedValue");
+
+updateSpeed(gameSpeed);
+
+
+gameSpeedSlider.addEventListener("change", event => {
+    let speed = event.target.value;
+    updateSpeed(speed);
+});
+
+function updateSpeed(value) {
+    gameSpeed = value;
+    gameSpeedSlider.value = value;
+    gameSpeedSpan.textContent = `${value}`;
+}
+
 
 const background1 = new Image();
 background1.src = "images/layer-1.png";

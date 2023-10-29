@@ -2,12 +2,25 @@ body {
     background: black;
 }
 
-canvas {
-    position: absolute;
-    border: 2px solid white;
-    width: 800px;
-    height: 700px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+}
+
+label {
+    display: block;
+}
+
+#speed-container {
+    display: flex;
+    color: white;
+    margin-bottom: 1.2rem;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#gameSpeed {
+    flex-grow: 1;
 }

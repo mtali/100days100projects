@@ -9,7 +9,16 @@
     <title>Parallax Background</title>
 </head>
 <body>
-<canvas id="canvas1"></canvas>
+
+<div class="container">
+    <div id="speed-container">
+        <label for="gameSpeed">Game speed: <span id="speedValue"></span></label>
+        <input class="slider" id="gameSpeed" max="20" min="1" type="range" value="50">
+    </div>
+    <canvas id="canvas1"></canvas>
+</div>
+
+
 <script src="js/core.js"></script>
 </body>
 </html>
