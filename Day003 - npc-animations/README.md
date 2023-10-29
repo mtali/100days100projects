@@ -17,8 +17,7 @@
 ### Third Day of #100days100projects
 
 Today is my third day of #100days100projects, and I am excited to share my enemy swarm background effect project. I
-leaned
-a lot about canvas API and how to effective manage swarm of enemies and randomize their movements
+leaned a lot about canvas API and how to effectively manage swarm of enemies and randomize their movements
 
 ### Possible Improvements
 
