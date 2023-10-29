@@ -1,6 +1,7 @@
 ## Day001 - sprite animations
 
-This is a animation project using JavaScript and HTML5 canvas. It features a shadow dog character that can run, jump, and fall. The user can change the animation state of the character using a dropdown menu.
+This is a animation project using JavaScript and HTML5 canvas. It features a shadow dog character that can run, jump,
+and fall. The user can change the animation state of the character using a dropdown menu.
 
 ### Preview
 
@@ -8,11 +9,14 @@ This is a animation project using JavaScript and HTML5 canvas. It features a sha
 
 ### Instructions
 
-To run the project, simply open the `index.html` file in a web browser. You can then use the dropdown menu to change the animation state of the character.
+To run the project, simply open the `index.html` file in a web browser. You can then use the dropdown menu to change the
+animation state of the character.
 
 ### How it works
 
-The animation is created by drawing a different frame of the character image to the canvas on each frame of the animation loop. The frame of the image that is drawn is determined by the current animation state and the game frame counter.
+The animation is created by drawing a different frame of the character image to the canvas on each frame of the
+animation loop. The frame of the image that is drawn is determined by the current animation state and the game frame
+counter.
 
 ### Animation states
 
@@ -31,7 +35,8 @@ The following animation states are available:
 
 ### Stagger frames
 
-The stagger frames value determines how many frames to wait between drawing each frame of the animation. A higher stagger frames value will result in a slower animation.
+The stagger frames value determines how many frames to wait between drawing each frame of the animation. A higher
+stagger frames value will result in a slower animation.
 
 ### License
 
