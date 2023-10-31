@@ -1,4 +1,4 @@
-**## Day004 - Explosions**
+## Day004 - Explosions
 
 **Project Name:** Explosions
 
