@@ -26,7 +26,7 @@ class Explosion {
     update() {
         if (this.frame === 0) this.sound.play();
         this.timer++
-        if (this.timer % 10 === 0) {
+        if (this.timer % 8 === 0) {
             this.frame++;
         }
     }
