@@ -8,10 +8,6 @@ This project is a simple JavaScript canvas animation that creates explosions whe
 explosions are created using a sprite sheet of a single explosion animation. The explosions are also accompanied by a
 sound effect.
 
-### Preview
-
-![Image](images/preview.png)
-
 ### Technologies
 
 * JavaScript
