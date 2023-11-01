@@ -107,6 +107,7 @@ class Explosion {
 }
 
 function drawScore() {
+    ctx.textAlign = "start";
     ctx.fillStyle = "black";
     ctx.fillText("Score: " + score, 50, 75);
     ctx.fillStyle = "white";
@@ -115,17 +116,12 @@ function drawScore() {
 
 function drawGameOver() {
     ctx.textAlign = "center";
-    ctx.fillStyle = "black";
-    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     ctx.fillStyle = "white";
-    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+    ctx.fillText("GAME OVER", canvas.width / 2 + 5, canvas.height / 2 + 5);
+    ctx.fillText("space to restart!", canvas.width / 2, canvas.height / 2 + 50);
 }
 
-function animate(timestamp) {
-    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    collisionCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    let delta = timestamp - lastTime;
-    lastTime = timestamp;
+function spawnNextRaven(delta) {
     timeToNextRaven += delta;
     if (timeToNextRaven > ravenInterval) {
         ravens.push(new Raven());
@@ -134,23 +130,35 @@ function animate(timestamp) {
             return a.width - b.width;
         });
     }
-    drawScore();
+}
+
+function animate(timestamp) {
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    collisionCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    let delta = timestamp - lastTime;
+    lastTime = timestamp;
+
+    if (!gameOver) spawnNextRaven(delta);
+
     [...ravens, ...explosions].forEach(obj => obj.update(delta));
     [...ravens, ...explosions].forEach(obj => obj.draw());
 
     ravens = ravens.filter(obj => !obj.delete);
     explosions = explosions.filter(obj => !obj.delete);
 
-    if (!gameOver) {
-        requestAnimationFrame(animate);
-    } else {
-        drawGameOver();
-    }
+    if (gameOver) drawGameOver();
+
+    drawScore();
+
+    requestAnimationFrame(animate);
 }
 
 animate(0);
 
+
 document.addEventListener("click", e => {
+    if (gameOver) return;
     canvasPosition = canvas.getBoundingClientRect();
     let positionX = e.x - canvasPosition.left;
     let positionY = e.y - canvasPosition.top;
@@ -164,4 +172,14 @@ document.addEventListener("click", e => {
             explosions.push(new Explosion(raven.x, raven.y, raven.width));
         }
     });
+});
+
+document.addEventListener('keydown', (event) => {
+    if (!gameOver) return
+    if (event.code === "Space") {
+        ravens = [];
+        explosions = [];
+        score = 0;
+        gameOver = false;
+    }
 });
