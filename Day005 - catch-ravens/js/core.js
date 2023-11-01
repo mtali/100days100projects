@@ -11,6 +11,8 @@ collisionCanvas.height = 700;
 collisionCanvas.width = 700;
 let explosions = [];
 
+let gameOver = false;
+
 
 let timeToNextRaven = 0;
 let ravenInterval = 500;
@@ -61,6 +63,8 @@ class Raven {
             if (this.frame > this.maxFrame) this.frame = 0;
             this.timeSinceFlap = 0;
         }
+
+        if (this.x < 0 - this.width) gameOver = true
     }
 
     draw() {
@@ -109,6 +113,14 @@ function drawScore() {
     ctx.fillText("Score: " + score, 55, 80);
 }
 
+function drawGameOver() {
+    ctx.textAlign = "center";
+    ctx.fillStyle = "black";
+    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+    ctx.fillStyle = "white";
+    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+}
+
 function animate(timestamp) {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     collisionCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -129,7 +141,11 @@ function animate(timestamp) {
     ravens = ravens.filter(obj => !obj.delete);
     explosions = explosions.filter(obj => !obj.delete);
 
-    requestAnimationFrame(animate);
+    if (!gameOver) {
+        requestAnimationFrame(animate);
+    } else {
+        drawGameOver();
+    }
 }
 
 animate(0);
