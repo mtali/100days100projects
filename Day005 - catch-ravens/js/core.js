@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 const CANVAS_HEIGHT = canvas.height = 700;
 const CANVAS_WIDTH = canvas.width = 700;
+let canvasPosition;
 
 
 const collisionCanvas = document.getElementById("collisionCanvas");
@@ -59,8 +60,6 @@ class Raven {
             if (this.frame > this.maxFrame) this.frame = 0;
             this.timeSinceFlap = 0;
         }
-
-
     }
 
     draw() {
@@ -103,7 +102,11 @@ function animate(timestamp) {
 animate(0);
 
 document.addEventListener("click", e => {
-    const detectPixelColor = collisionCtx.getImageData(e.x, e.y, 1, 1);
+    canvasPosition = canvas.getBoundingClientRect();
+    let positionX = e.x - canvasPosition.left;
+    let positionY = e.y - canvasPosition.top;
+
+    const detectPixelColor = collisionCtx.getImageData(positionX, positionY, 1, 1);
     const pc = detectPixelColor.data;
     ravens.forEach(raven => {
         if (raven.randomColors[0] === pc[0] && raven.randomColors[1] === pc[1] && raven.randomColors[2] === pc[2]) {
