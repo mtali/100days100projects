@@ -9,6 +9,7 @@ const collisionCanvas = document.getElementById("collisionCanvas");
 const collisionCtx = collisionCanvas.getContext("2d", {willReadFrequently: true});
 collisionCanvas.height = 700;
 collisionCanvas.width = 700;
+let explosions = [];
 
 
 let timeToNextRaven = 0;
@@ -69,6 +70,38 @@ class Raven {
     }
 }
 
+class Explosion {
+    constructor(x, y, size) {
+        this.image = new Image();
+        this.image.src = "assets/boom.png";
+        this.spriteWidth = 200;
+        this.spriteHeight = 179;
+        this.size = size;
+        this.x = x;
+        this.y = y;
+        this.frame = 0;
+        this.sound = new Audio();
+        this.sound.src = "assets/boom.wav";
+        this.timeSinceLastFrame = 0;
+        this.frameInterval = 100;
+        this.delete = false;
+    }
+
+    update(delta) {
+        if (this.frame === 0) this.sound.play();
+        this.timeSinceLastFrame += delta;
+        if (this.timeSinceLastFrame > this.frameInterval) {
+            this.frame++;
+            this.timeSinceLastFrame = 0;
+            if (this.frame > 5) this.delete = true;
+        }
+    }
+
+    draw() {
+        ctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.size, this.size);
+    }
+}
+
 function drawScore() {
     ctx.fillStyle = "black";
     ctx.fillText("Score: " + score, 50, 75);
@@ -90,11 +123,11 @@ function animate(timestamp) {
         });
     }
     drawScore();
-    [...ravens].forEach(obj => obj.update(delta));
-    [...ravens].forEach(obj => obj.draw());
+    [...ravens, ...explosions].forEach(obj => obj.update(delta));
+    [...ravens, ...explosions].forEach(obj => obj.draw());
 
-    ravens = ravens.filter(obj => !obj.delete)
-
+    ravens = ravens.filter(obj => !obj.delete);
+    explosions = explosions.filter(obj => !obj.delete);
 
     requestAnimationFrame(animate);
 }
@@ -112,6 +145,7 @@ document.addEventListener("click", e => {
         if (raven.randomColors[0] === pc[0] && raven.randomColors[1] === pc[1] && raven.randomColors[2] === pc[2]) {
             raven.delete = true;
             score++;
+            explosions.push(new Explosion(raven.x, raven.y, raven.width));
         }
     });
 });
