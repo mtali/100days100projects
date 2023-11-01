@@ -10,7 +10,7 @@ sound effect.
 
 ### Preview
 
-Image of the preview: images/preview.png
+![Image](images/preview.png)
 
 ### Technologies
 
