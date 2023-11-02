@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.width = this.spriteWidth * 0.5;
             this.height = this.spriteHeight * 0.5;
             this.image = spider;
-            this.x = Math.random() * this.game.width;
+            this.x = Math.random() * (this.game.width - this.width);
             this.y = 0 - this.height;
             this.vx = 0;
             this.vy = Math.random() * 0.1 + 0.1;
