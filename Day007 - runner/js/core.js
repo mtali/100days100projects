@@ -129,7 +129,7 @@ window.addEventListener("load", function () {
             this.y = 0;
             this.width = 2400;
             this.height = 720;
-            this.vx = 0.5;
+            this.vx = 0.35;
         }
 
         draw(ctx) {
@@ -234,7 +234,7 @@ window.addEventListener("load", function () {
 
         context.clearRect(0, 0, canvas.width, canvas.height);
 
-        // background.update(delta);
+        background.update(delta);
         background.draw(context);
 
         player.update(delta, input, enemies);
