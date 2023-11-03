@@ -55,21 +55,16 @@ window.addEventListener("load", function () {
         }
 
         draw(ctx) {
-            ctx.strokeStyle = 'white';
-            ctx.strokeRect(this.x, this.y, this.width, this.height);
-            ctx.beginPath();
-            ctx.arc(this.x + this.width * 0.5, this.y + this.height * 0.5, this.width * 0.5, 0, Math.PI * 2);
-            ctx.stroke();
             ctx.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height, this.x, this.y, this.width, this.height);
         }
 
         update(delta, input, enemies) {
 
             enemies.forEach(enemy => {
-                const dx = enemy.x - this.x;
-                const dy = enemy.y - this.y;
+                const dx = (enemy.x + enemy.width * 0.5 - 20) - (this.x + this.width * 0.5);
+                const dy = (enemy.y + enemy.height * 0.5) - (this.y + this.height * 0.5 + 20);
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < enemy.width / 2 + this.width / 2) {
+                if (distance < enemy.width / 3 + this.width / 3) {
                     gameOver = true;
                 }
             })
@@ -167,11 +162,6 @@ window.addEventListener("load", function () {
         }
 
         draw(ctx) {
-            ctx.strokeStyle = 'white';
-            ctx.strokeRect(this.x, this.y, this.width, this.height);
-            ctx.beginPath();
-            ctx.arc(this.x + this.width * 0.5, this.y + this.height * 0.5, this.width * 0.5, 0, Math.PI * 2);
-            ctx.stroke();
             ctx.drawImage(this.image, this.frameX * this.width, 0, this.width, this.height, this.x, this.y, this.width, this.height);
         }
 
