@@ -29,7 +29,13 @@ window.addEventListener("load", function () {
                     e.key === 'ArrowRight') {
                     this.keys.splice(this.keys.indexOf(e.key))
                 }
+            });
 
+            document.addEventListener('keydown', event => {
+
+                if (event.code === "Space" && gameOver) {
+                    resetGame();
+                }
             });
         }
     }
@@ -143,6 +149,7 @@ window.addEventListener("load", function () {
         }
     }
 
+
     class Enemy {
         constructor(worldWidth, worldHeight) {
             this.worldWidth = worldWidth;
@@ -199,7 +206,7 @@ window.addEventListener("load", function () {
         }
 
         enemies.forEach(enemy => {
-            enemy.update(delta);
+            if (!gameOver) enemy.update(delta);
             enemy.draw(ctx);
         });
 
@@ -208,7 +215,7 @@ window.addEventListener("load", function () {
 
     function displayStatusText(ctx) {
         ctx.font = '40px Helvetica';
-
+        ctx.textAlign = "start";
         ctx.fillStyle = "black";
         context.fillText('Score: ' + score, 20, 50);
         ctx.fillStyle = "white";
@@ -234,20 +241,27 @@ window.addEventListener("load", function () {
 
         context.clearRect(0, 0, canvas.width, canvas.height);
 
-        background.update(delta);
+
+        if (!gameOver) background.update(delta);
         background.draw(context);
 
-        player.update(delta, input, enemies);
+        if (!gameOver) player.update(delta, input, enemies);
         player.draw(context);
 
         handleEnemies(delta, context);
 
         displayStatusText(context);
 
-        if (!gameOver) {
-            requestAnimationFrame(animate);
-        }
+        requestAnimationFrame(animate);
+
     }
 
     animate(0);
+
+    function resetGame() {
+        enemies = [];
+        score = 0;
+        gameOver = false;
+        console.log("resetting");
+    }
 })
