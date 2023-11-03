@@ -5,6 +5,7 @@ window.addEventListener("load", function () {
     canvas.height = 720;
     let lastTime = 0;
     let enemies = [];
+    let score = 0;
 
 
     class InputHandler {
@@ -162,7 +163,10 @@ window.addEventListener("load", function () {
                 this.frameTimer += delta;
             }
 
-            if (this.x < 0 - this.width) this.delete = true;
+            if (this.x < 0 - this.width) {
+                this.delete = true;
+                score += 1;
+            }
 
 
             this.x -= (this.vx * delta);
@@ -191,8 +195,13 @@ window.addEventListener("load", function () {
         enemies = enemies.filter(enemy => !enemy.delete);
     }
 
-    function displayStatusText() {
+    function displayStatusText(ctx) {
+        ctx.font = '40px Helvetica';
 
+        ctx.fillStyle = "black";
+        context.fillText('Score: ' + score, 20, 50);
+        ctx.fillStyle = "white";
+        context.fillText('Score: ' + score, 22, 52);
     }
 
     const input = new InputHandler();
@@ -212,6 +221,8 @@ window.addEventListener("load", function () {
         player.draw(context);
 
         handleEnemies(delta, context);
+
+        displayStatusText(context);
 
         requestAnimationFrame(animate);
     }
