@@ -146,6 +146,7 @@ window.addEventListener("load", function () {
             this.frameTimer = 0;
             this.frameInterval = 1000 / this.fps;
             this.frameX = 1;
+            this.delete = false;
         }
 
         draw(ctx) {
@@ -160,6 +161,8 @@ window.addEventListener("load", function () {
             } else {
                 this.frameTimer += delta;
             }
+
+            if (this.x < 0 - this.width) this.delete = true;
 
 
             this.x -= (this.vx * delta);
@@ -182,8 +185,10 @@ window.addEventListener("load", function () {
 
         enemies.forEach(enemy => {
             enemy.update(delta);
-            enemy.draw(ctx)
+            enemy.draw(ctx);
         });
+
+        enemies = enemies.filter(enemy => !enemy.delete);
     }
 
     function displayStatusText() {
