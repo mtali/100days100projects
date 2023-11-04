@@ -32,7 +32,6 @@ window.addEventListener("load", function () {
             });
 
             document.addEventListener('keydown', event => {
-
                 if (event.code === "Space" && gameOver) {
                     resetGame();
                 }
