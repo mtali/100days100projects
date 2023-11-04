@@ -35,6 +35,7 @@ body {
 
 .btn-ghost {
     color: #333;
+    box-shadow: none;
 }
 
 .btn span {
@@ -47,6 +48,12 @@ body {
     padding: 2px 9px;
     font-size: 0.7rem;
     border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    box-shadow: none;
+    transform: scale(0.98);
 }
 
 
