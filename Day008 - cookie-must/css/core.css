@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E2E8F0;
+    color: #333;
+}
+
+.card {
+    width: 400px;
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    border-radius: 0.7rem;
+    text-align: center;
+}
+
+.btn {
+    margin: 0.5rem;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px 10px;
+    flex: 1;
+}
+
+.btn-active {
+    background-color: #3498db;
+}
+
+.btn-ghost {
+    color: #333;
+    border: 1px solid rgb(128, 128, 128);
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
