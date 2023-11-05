@@ -1,0 +1,59 @@
+
+body {
+    background-color: #E2E8F0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#password {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+.card {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 0.5rem;
+    margin: auto;
+    background-color: white;
+}
+
+#password-length {
+    width: 80px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
