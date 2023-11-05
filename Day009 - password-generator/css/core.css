@@ -1,3 +1,6 @@
+* {
+
+}
 
 body {
     background-color: #E2E8F0;
@@ -29,6 +32,8 @@ button {
     flex: 1;
     padding: 10px;
     font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 button:active {
@@ -41,13 +46,24 @@ button:active {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     margin: auto;
     background-color: white;
+    border: 1px solid rgb(128, 128, 128);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
 }
 
 #password-length {
     width: 80px;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .container {
