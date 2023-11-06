@@ -71,7 +71,7 @@ body {
 }
 
 .toggle:checked + .label {
-    background-color: #f5ac4a;
+    background-color: #6e99e7;
 }
 
 .toggle:checked + .label .ball {
