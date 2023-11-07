@@ -63,7 +63,8 @@
               "browserTarget": "weather-app:build:production"
             },
             "development": {
-              "browserTarget": "weather-app:build:development"
+              "browserTarget": "weather-app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
