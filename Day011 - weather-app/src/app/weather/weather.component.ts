@@ -11,14 +11,29 @@ export class WeatherComponent implements OnInit {
   weatherData: any | null;
 
   constructor(private weatherService: WeatherService) {
-    this.weatherData = null;
+
   }
 
   ngOnInit() {
     this.weatherService.getWeather().subscribe({
       next: value => {
-        this.weatherData = value
+        this.weatherData = value;
       }
     })
+  }
+
+  nextForecasts(data: any): any {
+    return [...data['forecast']['forecastday']].splice(1)
+  }
+
+  formattedDate(date: any = new Date()): string {
+    let options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    return (new Date(date)).toLocaleDateString('en-US', options);
   }
 }

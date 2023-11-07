@@ -1,32 +1,31 @@
 <div class="min-h-screen bg-gray-100 flex items-center">
   <div class="w-full mx-auto max-w-sm">
     <div class="bg-white shadow rounded-lg p-5 w-full">
-      <h2 class="font-bold text-gray-800 text-lg">Tuesday, November 7, 2023</h2>
-      <div>
+      <h2 class="font-bold text-gray-800 text-lg">{{ formattedDate()}}</h2>
 
+      <div *ngIf="weatherData != null">
         <div class="flex mt-4 mb-2">
           <div class="flex-1">
-            <div class="text-gray-600 text-sm">Dar es Salaam</div>
-            <div class="text-3xl font-bold text-gray-800"> 30&deg;C</div>
-            <div class="text-sm text-gray-600">Mist</div>
+            <div class="text-gray-600 text-sm">{{ weatherData.location.region}}</div>
+            <div class="text-3xl font-bold text-gray-800"> {{ weatherData.current.temp_c }}&deg;C</div>
+            <div class="text-sm text-gray-600">{{ weatherData.current.condition.text }}</div>
           </div>
           <div class="w-24">
-            <img alt="weather icon" height="64" ngSrc="{{ defaultIcon }}" width="64">
+            <img alt="weather icon" height="64" ngSrc="https:{{ weatherData.current.condition.icon }}" width="64">
           </div>
         </div>
 
         <div class="flex space-x-2 justify-between border-t">
-          <div class="flex-1 text-center pt-3 border-r">
-            <div class="text-xs text-gray-500">08/11/2023</div>
-            <img alt="" class="mx-auto" height="64" ngSrc="{{ defaultIcon }}" width="64">
-            <div class="font-semibold text-gray-800 mt-1.5">23 &deg;C</div>
-            <div class="text-xs text-gray-600">Patchy rain possible</div>
-          </div>
-          <div class="flex-1 text-center pt-3">
-            <div class="text-xs text-gray-500">08/11/2023</div>
-            <img alt="" class="mx-auto" height="64" ngSrc="{{ defaultIcon }}" width="64">
-            <div class="font-semibold text-gray-800 mt-1.5">23 &deg;C</div>
-            <div class="text-xs text-gray-600">Patchy rain possible</div>
+
+          <div
+            *ngFor="let forecast of nextForecasts(weatherData); let first = first"
+            [ngClass]="{ 'border-r' : first }"
+            class="flex-1 text-center pt-3">
+            <div class="text-xs text-gray-500">{{ forecast.date.split('-')[2]}}/{{ forecast.date.split('-')[1]}}
+              /{{ forecast.date.split('-')[0]}}</div>
+            <img alt="" class="mx-auto" height="64" ngSrc="https:{{ forecast.day.condition.icon }}" width="64">
+            <div class="font-semibold text-gray-800 mt-1.5">{{ forecast.day.maxtemp_c }} &deg;C</div>
+            <div class="text-xs text-gray-600">{{ forecast.day.condition.text }}</div>
           </div>
         </div>
       </div>
