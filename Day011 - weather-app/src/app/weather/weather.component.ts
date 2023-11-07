@@ -7,11 +7,9 @@ import {WeatherService} from "../weather.service";
   styles: []
 })
 export class WeatherComponent implements OnInit {
-  defaultIcon: string = "/assets/263.png";
   weatherData: any | null;
 
   constructor(private weatherService: WeatherService) {
-
   }
 
   ngOnInit() {
