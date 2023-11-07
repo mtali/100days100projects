@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {WeatherComponent} from './weather/weather.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {WeatherComponent} from './weather/weather.component';
     WeatherComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

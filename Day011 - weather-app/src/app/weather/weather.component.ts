@@ -6,5 +6,5 @@ import {Component} from '@angular/core';
   styles: []
 })
 export class WeatherComponent {
-
+  defaultIcon: string = "/assets/263.png"
 }
