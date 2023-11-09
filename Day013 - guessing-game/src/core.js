@@ -8,14 +8,18 @@ window.addEventListener('load', () => {
     const minusBtn = document.getElementById('minusBtn');
     const message = document.getElementById('message');
     let timeoutId;
+    let done = false;
     setHealth();
 
 
     form.addEventListener('submit', event => {
         const num = Number(number.value);
+        event.preventDefault();
+        if (done) return;
         if (health > 0) {
             if (num === randomNumber) {
-                updateMessage("You won");
+                updateMessage("You won 🤩 [refresh to restart]", false);
+                done = true;
             } else if (num > randomNumber) {
                 updateMessage("Try less!");
                 decreaseHealth();
@@ -23,9 +27,9 @@ window.addEventListener('load', () => {
                 updateMessage("Try greater!")
                 decreaseHealth()
             }
-            event.preventDefault();
         } else {
-            updateMessage("You lost 😭 ")
+            updateMessage("You lost 😭. [refresh to restart]", false);
+            done = true;
         }
 
         setHealth();
@@ -35,13 +39,15 @@ window.addEventListener('load', () => {
     minusBtn.addEventListener('click', () => minus());
 
 
-    function updateMessage(msg) {
-        message.textContent = msg;
+    function updateMessage(msg, wait = true) {
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-            message.textContent = "Waiting ..."
-        }, 1500)
+        message.textContent = msg;
+        if (wait) {
 
+            timeoutId = setTimeout(() => {
+                message.textContent = "Waiting ..."
+            }, 1500)
+        }
     }
 
 
@@ -58,14 +64,16 @@ window.addEventListener('load', () => {
     }
 
     function plus() {
+        if (done) return;
         let num = Number(number.value);
         if (num < 100) number.value = num + 1;
     }
 
     function minus() {
+        if (done) return;
         let num = Number(number.value);
         if (num > 0) number.value = num - 1;
-
     }
+
 
 });
