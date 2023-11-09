@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="../dist/output.css" rel="stylesheet">
+    <title>Guessing Game</title>
+</head>
+<body>
+<div class="bg-gradient-to-tr from-fuchsia-300 to-sky-500 min-h-screen">
+    <section class="p-4 flex flex-col justify-center min-h-screen max-w-md mx-auto">
+        <div class="p-6 bg-sky-100 rounded">
+            <div class="flex flex-col">
+                <div class="flex items-center justify-center  font-black m-3 mb-6">
+                    <svg class="h-10 w-10 mr-3 text-red-600" fill="currentColor"
+                         viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd"
+                              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                    <h1 class="tracking-wide text-3xl text-gray-900">Guessing Game</h1>
+                </div>
+                <p class="text-center animate-pulse mb-6">Guess a number between 1 and 100</p>
+            </div>
+            <form action="" class="flex flex-col justify-center">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="inline-flex items-center mb-3">
+                        <svg class="h-8 w-8 mr-3 bg-gradient-to-r from-pink-600 to-red-600 shadow-lg rounded p-1.5 text-gray-100"
+                             fill="currentColor"
+                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 7H7v6h6V7z"/>
+                            <path clip-rule="evenodd"
+                                  d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z"
+                                  fill-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold text-gray-900">Score: 0</span>
+                    </div>
+                    <div class="flex">
+                        <button class="bg-yellow-600 p-1.5 font-bold rounded" type="button">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                                      fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+
+                        <input class="max-w-[100px] font-bold font-mono py-1.5 px-2 mx-1.5
+            block border border-gray-300 rounded-md text-sm shadow-sm  placeholder-gray-400
+            focus:outline-none
+            focus:border-sky-500
+            focus:ring-1
+            focus:ring-sky-500
+            focus:invalid:border-red-500  focus:invalid:ring-red-500" id="number" type="number" value="1">
+
+                        <button class="bg-green-600 p-1.5 font-bold rounded" type="button">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd"
+                                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                      fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="px-4 py-1.5 rounded-md shadow-lg bg-gradient-to-r from-pink-600 to-red-600 font-medium text-gray-100 block transition duration-300"
+                        type="submit">
+                    <span id="submit_button">Submit<span id="lives"></span></span>
+                </button>
+            </form>
+
+        </div>
+    </section>
+</div>
+</body>
+</html>
