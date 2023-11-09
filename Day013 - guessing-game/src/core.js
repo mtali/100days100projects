@@ -23,7 +23,6 @@ window.addEventListener('load', () => {
                 updateMessage("Try greater!")
                 decreaseHealth()
             }
-            console.log(`Fuck ${num}`);
             event.preventDefault();
         } else {
             updateMessage("You lost 😭 ")
