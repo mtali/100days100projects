@@ -27,7 +27,7 @@ onPageReady(() => {
 			<div>
 				<img src="${meal.strMealThumb}" alt="Meal Image" class="max-w-full object-cover">
 				
-				<h5 class="text-3xl text-gray-900 font-bold">Ingredients:</h5>
+				<h5 class="text-3xl text-gray-900 font-bold mt-10">Ingredients:</h5>
 				<ul>
 					${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
 				</ul>
