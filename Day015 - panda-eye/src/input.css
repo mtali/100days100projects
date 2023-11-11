@@ -21,7 +21,7 @@ body {
 }
 
 .panda .ear {
-    background-color: #000;
+    background-color: #26453e;
     border-radius: 50%;
     position: absolute;
     top: 5px;
@@ -39,7 +39,7 @@ body {
 }
 
 .panda .eye {
-    background-color: #000;
+    background-color: #26453e;
     position: absolute;
     top: 50px;
     left: 50%;
@@ -79,7 +79,7 @@ body {
     background: transparent;
     border-radius: 0 0 50% 50%;
     border: 2px solid transparent;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #26453e;
     position: absolute;
     top: 45%;
     left: 50%;
