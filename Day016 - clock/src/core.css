@@ -55,8 +55,8 @@ html.dark {
 
 .clock {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
 }
 
 .needle {
@@ -67,7 +67,7 @@ html.dark {
     top: 50%;
     transform-origin: bottom center;
     width: 3px;
-    height: 65px;
+    height: 80px;
 }
 
 .needle.hour {
@@ -76,12 +76,12 @@ html.dark {
 
 .needle.minute {
     transform: translate(-50%, -100%) rotate(0deg);
-    height: 100px;
+    height: 140px;
 }
 
 .needle.second {
     background-color: red;
-    height: 100px;
+    height: 140px;
     transform: translate(-50%, -100%) rotate(0deg);
 }
 
@@ -111,6 +111,7 @@ html.dark {
 
 .time {
     font-size: 60px;
+    color: var(--primary-color);
 }
 
 .date {
