@@ -20,6 +20,7 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--secondary-color);
 }
 
 html.dark {
@@ -34,7 +35,7 @@ html.dark {
     color: var(--secondary-color);
     font-size: 20px;
     padding: 8px 12px;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .toggle-mode:active {
