@@ -39,7 +39,7 @@ body {
 }
 
 .btn:hover .tooltip {
-    transform: translate(-50%, 120%);
+    transform: translate(-50%, -150%);
     opacity: 1;
 }
 
