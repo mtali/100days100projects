@@ -109,22 +109,20 @@ body {
     outline: none;
 }
 
-.language li {
-    padding: 8px 0;
-    font-weight: 500;
-    font-size: 1.15rem;
+.logos {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    gap: 20px;
 }
 
-.language i {
-    display: none;
+.logos img {
+    height: 3rem;
+    margin: 0 1rem 0.5rem;
 }
 
-.language li:hover {
-    transform: scale(101%);
-}
-
-.language .activated i {
-    display: inline-block;
+.logos img:hover {
+    transform: scale(1.5);
 }
 
 
