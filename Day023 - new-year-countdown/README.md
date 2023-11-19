@@ -1,12 +1,12 @@
 ## Day026 - New Year Countdown
 
-### Project Overview
+### Description
 
-**Title:** New Year Countdown
+Create an interactive and visually appealing New Year countdown using JavaScript, HTML5, and the CSS
 
-**Objective:**
+### Preview
 
-Create an interactive and visually appealing New Year countdown using JavaScript, HTML5, and the Canvas API.
+![Image](assets/preview.png)
 
 ### Technologies
 
