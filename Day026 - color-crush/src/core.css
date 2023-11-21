@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Robotto", sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #6c6da6;
+}
+
+#game-canvas {
+    background-color: red;
+    width: 350px;
+    height: 600px;
+}
