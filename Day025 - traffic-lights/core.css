@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.traffic-lights {
+    background-color: black;
+    width: 120px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.traffic-lights span {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: rgb(128, 128, 128);
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.red {
+    animation-name: red;
+}
+
+.yellow {
+    animation-name: yellow;
+}
+
+.green {
+    animation-name: green;
+}
+
+@keyframes red {
+    0%,
+    33% {
+        background-color: red;
+    }
+
+    34%,
+    100% {
+        background-color: rgb(128, 128, 128);
+    }
+}
+
+@keyframes yellow {
+    0%,
+    33% {
+        background-color: rgb(128, 128, 128);
+    }
+
+    34%,
+    66% {
+        background-color: yellow;
+    }
+    67%,
+    100% {
+        background-color: rgb(128, 128, 128);
+    }
+}
+
+@keyframes green {
+    0%,
+    33% {
+        background-color: rgb(128, 128, 128);
+    }
+
+    34%,
+    66% {
+        background-color: rgb(128, 128, 128);
+    }
+
+    67%,
+    100% {
+        background-color: green;
+    }
+}
