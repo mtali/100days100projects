@@ -31,7 +31,7 @@ p {
 }
 
 #game-canvas {
-    background-color: red;
+    background-color: #f5cdcd;
     width: 350px;
     height: 600px;
 }
