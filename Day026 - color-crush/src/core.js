@@ -8,6 +8,9 @@ window.addEventListener('load', () => {
     const ballX = canvas.width / 2;
     const defaultBallSpeed = 0.1;
     const speedModifier = 0.005;
+    const upAudio = new Audio("../assets/up.mp3");
+    const downAudio = new Audio("../assets/down.mp3 ");
+
     ctx.font = "24px Impact";
     let score = 0;
     let lastTime = 0;
@@ -42,8 +45,10 @@ window.addEventListener('load', () => {
                 if (this.color === ball.color) {
                     score++;
                     ballSpeed += speedModifier;
+                    play(upAudio);
                 } else {
                     gameOver = true;
+                    play(downAudio);
                 }
                 this.delete = true;
                 removeDeletedBalls();
@@ -118,14 +123,21 @@ window.addEventListener('load', () => {
         ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     }
 
+    function play(audio) {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.play()
+    }
+
+
     document.addEventListener('click', () => changeBalls());
     document.addEventListener('keyup', (e) => {
-        if (e.code === "Escape" && gameOver) {
-            setTimeout(() => {
-                score = 0;
-                ballSpeed = defaultBallSpeed;
-                gameOver = false;
-            }, 200);
+        if (e.code === "Escape") {
+            score = 0;
+            ballSpeed = defaultBallSpeed;
+            enemyBalls = [];
+            gameOver = false;
+            generateRandomBall();
         } else {
             changeBalls();
         }
