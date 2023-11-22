@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
     const ballSize = 20;
     const ballX = canvas.width / 2;
     const defaultBallSpeed = 0.1;
+    const speedModifier = 0.005;
     ctx.font = "24px Impact";
     let score = 0;
     let lastTime = 0;
@@ -40,7 +41,7 @@ window.addEventListener('load', () => {
             if (distance < ballSize * 2) {
                 if (this.color === ball.color) {
                     score++;
-                    ballSpeed += 0.001;
+                    ballSpeed += speedModifier;
                 } else {
                     gameOver = true;
                 }
@@ -69,6 +70,8 @@ window.addEventListener('load', () => {
                 ball.update(delta);
                 ball.draw();
             });
+        } else {
+            drawGameOver();
         }
 
         drawScore();
@@ -80,6 +83,7 @@ window.addEventListener('load', () => {
     animate(0);
 
     function changeBalls() {
+        if (gameOver) return;
         const temp = topBall.y;
         topBall.y = bottomBall.y
         bottomBall.y = temp;
@@ -108,19 +112,23 @@ window.addEventListener('load', () => {
         ctx.fillText("Score: " + score, 10, 40);
     }
 
+    function drawGameOver() {
+        ctx.textAlign = "center";
+        ctx.fillStyle = "black";
+        ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+        ctx.fillText("ESC to restart!", canvas.width / 2, canvas.height / 2 + 50);
+    }
+
     document.addEventListener('click', () => changeBalls());
-    document.addEventListener('keyup', () => {
-        if (gameOver) {
+    document.addEventListener('keyup', (e) => {
+        if (e.code === "Escape" && gameOver) {
             setTimeout(() => {
                 score = 0;
                 ballSpeed = defaultBallSpeed;
                 gameOver = false;
-            }, 1000);
+            }, 200);
         } else {
             changeBalls();
-
         }
     })
-
-
 });
