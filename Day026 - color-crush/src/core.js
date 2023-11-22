@@ -6,10 +6,13 @@ window.addEventListener('load', () => {
     const colors = {red: '#E53E3E', blue: '#4299E1'};
     const ballSize = 20;
     const ballX = canvas.width / 2;
+    const defaultBallSpeed = 0.1;
+    ctx.font = "24px Impact";
     let score = 0;
     let lastTime = 0;
-    let ballSpeed = 0.1;
+    let ballSpeed = defaultBallSpeed;
     let enemyBalls = [];
+    let gameOver = false;
 
     class Ball {
         constructor(options) {
@@ -37,10 +40,9 @@ window.addEventListener('load', () => {
             if (distance < ballSize * 2) {
                 if (this.color === ball.color) {
                     score++;
-                    ballSpeed += 0.01;
+                    ballSpeed += 0.001;
                 } else {
-                    score = 0;
-                    ballSpeed = 0.1;
+                    gameOver = true;
                 }
                 this.delete = true;
                 removeDeletedBalls();
@@ -60,12 +62,16 @@ window.addEventListener('load', () => {
         bottomBall.draw();
         topBall.draw();
 
-        enemyBalls.forEach(ball => {
-            ball.checkCollision(topBall);
-            ball.checkCollision(bottomBall);
-            ball.update(delta);
-            ball.draw();
-        });
+        if (!gameOver) {
+            enemyBalls.forEach(ball => {
+                ball.checkCollision(topBall);
+                ball.checkCollision(bottomBall);
+                ball.update(delta);
+                ball.draw();
+            });
+        }
+
+        drawScore();
 
         requestAnimationFrame(animate);
     }
@@ -96,8 +102,25 @@ window.addEventListener('load', () => {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
+    function drawScore() {
+        ctx.textAlign = "start";
+        ctx.fillStyle = "black";
+        ctx.fillText("Score: " + score, 10, 40);
+    }
+
     document.addEventListener('click', () => changeBalls());
-    document.addEventListener('keyup', () => changeBalls())
+    document.addEventListener('keyup', () => {
+        if (gameOver) {
+            setTimeout(() => {
+                score = 0;
+                ballSpeed = defaultBallSpeed;
+                gameOver = false;
+            }, 1000);
+        } else {
+            changeBalls();
+
+        }
+    })
 
 
 });

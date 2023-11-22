@@ -27,11 +27,11 @@ p {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #6c6da6;
+    background-color: #9ebefa;
 }
 
 #game-canvas {
-    background-color: #f5cdcd;
+    background-color: #fcf3f3;
     width: 350px;
     height: 600px;
 }
