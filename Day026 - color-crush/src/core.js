@@ -116,7 +116,6 @@ window.addEventListener('load', () => {
         ctx.textAlign = "center";
         ctx.fillStyle = "black";
         ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
-        ctx.fillText("ESC to restart!", canvas.width / 2, canvas.height / 2 + 50);
     }
 
     document.addEventListener('click', () => changeBalls());
