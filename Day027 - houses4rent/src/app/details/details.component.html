@@ -14,7 +14,18 @@
   </section>
   <section class="listing-apply">
     <h2 class="section-heading">Apply now to love here</h2>
-    <button class="primary" type="button">Apply now</button>
+    <form (submit)="submitApplication()" [formGroup]="applyForm">
+      <label for="first-name">First Name</label>
+      <input autocomplete="off" formControlName="firstName" id="first-name" type="text">
+
+      <label for="last-name">Last Name</label>
+      <input autocomplete="off" formControlName="lastName" id="last-name" type="text">
+
+      <label for="email">Email</label>
+      <input autocomplete="off" formControlName="email" id="email" type="text">
+
+      <button class="primary" type="submit">Apply Now</button>
+    </form>
   </section>
 
 </article>
