@@ -14,7 +14,7 @@
   </section>
   <section class="listing-apply">
     <h2 class="section-heading">Apply now to love here</h2>
-    <form (submit)="submitApplication()" [formGroup]="applyForm">
+    <form (submit)="submitApplication()" [formGroup]="applyForm" autocomplete="off">
       <label for="first-name">First Name</label>
       <input autocomplete="off" formControlName="firstName" id="first-name" type="text">
 
