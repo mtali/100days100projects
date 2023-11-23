@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     const ballSize = 20;
     const ballX = canvas.width / 2;
     const defaultBallSpeed = 0.1;
-    const speedModifier = 0.005;
+    const speedModifier = 0.01;
     const upAudio = new Audio("../assets/up.mp3");
     const downAudio = new Audio("../assets/down.mp3 ");
 
