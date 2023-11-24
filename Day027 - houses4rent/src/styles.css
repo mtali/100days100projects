@@ -3,26 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
+
+.app-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-body {
-  font-family: 'Be Vietnam Pro', sans-serif;
+@media (min-width: 768px) {
+  .app-container {
+    width: 750px;
+  }
 }
 
-:root {
-  --primary-color: #605DC8;
-  --secondary-color: #8B89E6;
-  --accent-color: #e8e7fa;
-  --shadow-color: #E8E8E8;
+@media (min-width: 992px) {
+  .app-container {
+    width: 970px;
+  }
 }
 
-button.primary {
-  padding: 10px;
-  border: solid 1px var(--primary-color);
-  background: var(--primary-color);
-  color: white;
-  border-radius: 8px;
+@media (min-width: 1200px) {
+  .app-container {
+    width: 1170px;
+  }
 }
+
+
+
+
+

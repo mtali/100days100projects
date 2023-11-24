@@ -11,8 +11,7 @@ import {HousingService} from "../services/housing.service";
     CommonModule,
     HousingLocationComponent
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
   housingService: HousingService = inject(HousingService)

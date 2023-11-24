@@ -1,31 +1,61 @@
-<article>
-  <img [src]="housingLocation?.photo" alt="" class="listing-photo"/>
-  <section class="listing-description">
-    <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
-    <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state}}</p>
-  </section>
-  <section class="listing-features">
-    <h2 class="section-heading">About this housing location</h2>
-    <ul>
-      <li>Units available: {{ housingLocation?.availableUnits }}</li>
-      <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
-      <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
-    </ul>
-  </section>
-  <section class="listing-apply">
-    <h2 class="section-heading">Apply now to love here</h2>
-    <form (submit)="submitApplication()" [formGroup]="applyForm" autocomplete="off">
-      <label for="first-name">First Name</label>
-      <input autocomplete="off" formControlName="firstName" id="first-name" type="text">
+<article class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
 
-      <label for="last-name">Last Name</label>
-      <input autocomplete="off" formControlName="lastName" id="last-name" type="text">
+  <img
+    [src]="housingLocation?.photo"
+    alt=""
+    class="md:h-[500px] lg:h-[600px] w-full object-cover rounded-[30px] sm:order-1 md:order-2"/>
 
-      <label for="email">Email</label>
-      <input autocomplete="off" formControlName="email" id="email" type="text">
+  <div class="md:order-1 sm:order-2">
+    <section class="mb-6">
+      <h2 class="text-6xl font-semibold mb-5">{{ housingLocation?.name }}</h2>
+      <p class="text-3xl mb-5">{{ housingLocation?.city }}, {{ housingLocation?.state}}</p>
+    </section>
+    <section class="mb-6">
+      <h2 class="text-gray-700 text-2xl mb-4">About this housing location</h2>
+      <ul>
+        <li>Units available: {{ housingLocation?.availableUnits }}</li>
+        <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
+        <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
+      </ul>
+    </section>
+    <section class="mb-6">
+      <h2 class="text-gray-700 text-2xl mb-4">Apply now to love here</h2>
+      <form (submit)="submitApplication()"
+            [formGroup]="applyForm"
+            class="flex flex-col gap-4">
+        <div>
+          <label class="block mb-2 font-semibold" for="first-name">First Name</label>
+          <input
+            class="border border-gray-800 rounded md:w-3/4 sm:w-full py-2 px-3 text-gray-700 focus:outline-none shadow"
+            formControlName="firstName"
+            id="first-name"
+            type="text">
+        </div>
 
-      <button class="primary" type="submit">Apply Now</button>
-    </form>
-  </section>
+        <div>
+          <label class="block mb-2 font-semibold" for="last-name">Last Name</label>
+          <input
+            class="border border-gray-800 rounded md:w-3/4 sm:w-full py-2 px-3 text-gray-700 focus:outline-none shadow"
+            formControlName="lastName"
+            id="last-name"
+            type="text">
+        </div>
+
+        <div>
+          <label class="block mb-2 font-semibold" for="email">Email</label>
+          <input
+            class="border border-gray-800 rounded md:w-3/4 sm:w-full py-2 px-3 text-gray-700 focus:outline-none shadow"
+            formControlName="email"
+            id="email"
+            type="text">
+        </div>
+
+        <button class="md:w-3/4 sm:w-full px-4 py-3 bg-teal-500 text-white rounded active:scale-95" type="submit">Apply
+          Now
+        </button>
+      </form>
+    </section>
+  </div>
+
 
 </article>

@@ -10,8 +10,7 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     RouterModule
   ],
-  templateUrl: './housing-location.component.html',
-  styleUrl: './housing-location.component.css'
+  templateUrl: './housing-location.component.html'
 })
 export class HousingLocationComponent {
   @Input() housingLocation!: HousingLocation;

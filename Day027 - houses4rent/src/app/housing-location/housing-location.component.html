@@ -1,7 +1,20 @@
-<section class="listing">
-  <img [src]="housingLocation.photo" alt="Exterior photo of {{ housingLocation.name }}" class="listing-photo">
-  <h2 class="listing-heading">{{ housingLocation.name }}</h2>
-  <p class="listing-location">{{ housingLocation.city }}, {{ housingLocation.state }}</p>
-  <a [routerLink]="['/details', housingLocation.id]">Learn More</a>
+<section class="bg-gray-100 rounded-[30px] shadow">
+  <img
+    [src]="housingLocation.photo"
+    alt="Exterior photo of {{ housingLocation.name }}"
+    class="h-[250px] w-full object-cover rounded-t-[30px]">
+
+
+  <h2
+    class="text-gray-700 text-md font-bold my-2 px-2">
+    {{ housingLocation.name }}
+  </h2>
+
+  <p class="pb-1 px-2">{{ housingLocation.city }}, {{ housingLocation.state }}</p>
+  <div class="flex items-center -ml-1 px-2 pt-2 pb-10">
+    <img alt="location pin" src="/assets/location-pin.svg">
+    <a [routerLink]="['/details', housingLocation.id]"
+       class="cursor-pointer no-underline after:content-['\203A'] after:ml-2">Learn More</a>
+  </div>
 </section>
 
