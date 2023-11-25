@@ -1,0 +1,15 @@
+.spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer {
+    background-image: url("../assets/layer.svg");
+}
+
+.flip {
+    transform: rotate(180deg);
+}
