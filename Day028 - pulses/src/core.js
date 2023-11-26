@@ -11,7 +11,7 @@ function increment() {
 }
 
 function displayCount() {
-    circle.textContent = `${count}s`;
+    // circle.textContent = `${count}s`;
 }
 
 document.addEventListener('click', () => {
