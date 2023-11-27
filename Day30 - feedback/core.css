@@ -50,15 +50,20 @@ body {
 
 .rating:hover,
 .rating.active {
-    background-color: darkgreen;
+    background-color: #0bbe0b;
     border-radius: 10px;
     box-shadow:  0 0 10px rgba(0, 0, 0, 0.3); /* learn */
     color: aliceblue;
     transition: all 300ms ease;
 }
 
+.rating:hover img {
+    transform: scale(1.1);
+    transition: scale 200ms ease-in-out;
+}
+
 .btn {
-    background-color: darkcyan;
+    background-color: #038803;
     color: aliceblue;
     border: 0;
     margin: 10px;
