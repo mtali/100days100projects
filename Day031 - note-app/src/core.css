@@ -64,6 +64,7 @@ body {
     font-size: 5rem;
     color: rgba(0, 0, 0, 0.4);
     font-weight: 700;
+    height: 200px;
 }
 
 .btn:hover {
