@@ -25,23 +25,30 @@ window.addEventListener('load', () => {
     let index = 0;
     let typingIndex = 0;
     let deleting = false;
+    let hold = false;
 
     function typeWriter() {
-        const sentence = codingIsContinuation[index];
+        if (!hold) {
+            const sentence = codingIsContinuation[index];
 
-        dynamicEl.innerText = sentence.substring(0, typingIndex + 1);
+            dynamicEl.innerText = sentence.substring(0, typingIndex + 1);
 
-        if (!deleting) {
-            typingIndex++;
-            if (typingIndex > sentence.length) {
-                deleting = true;
+            if (!deleting) {
+                typingIndex++;
+                if (typingIndex > sentence.length) {
+                    deleting = true;
+                    hold = true
+                    setTimeout(() => {
+                        hold = false;
+                        typingIndex--;
+                    }, 1000);
+                }
+            } else {
                 typingIndex--;
-            }
-        } else {
-            typingIndex--;
-            if (typingIndex < 0) {
-                deleting = false;
-                index = (index + 1) % codingIsContinuation.length;
+                if (typingIndex < 0) {
+                    deleting = false;
+                    index = (index + 1) % codingIsContinuation.length;
+                }
             }
         }
         setTimeout(typeWriter, speed);

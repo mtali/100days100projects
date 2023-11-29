@@ -30,7 +30,6 @@ body {
 .cursor {
     border-left: 1px solid #bd53ed;
     animation: blink 0.5s infinite;
-
 }
 
 @keyframes blink {
