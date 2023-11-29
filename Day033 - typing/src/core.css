@@ -24,4 +24,20 @@ body {
 
 .text > span {
     color: #bd53ed;
+    position: relative;
+}
+
+.cursor {
+    border-left: 1px solid #bd53ed;
+    animation: blink 0.5s infinite;
+
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
