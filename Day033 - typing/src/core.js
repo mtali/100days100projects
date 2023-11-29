@@ -1,22 +1,24 @@
-const codingIsContinuation = [
-    "machine language.",
-    "ideas to code.",
-    "creativity's bridge.",
-    "learning journey.",
-    "digital backbone.",
-    "future code craft.",
-    "tech poetry.",
-    "innovation skill.",
-    "limitless key.",
-    "code blueprint.",
-    "computer symphony.",
-    "digital wizardry.",
-    "imagine, code, transform.",
-    "logic dance.",
-    "software heartbeat.",
-    "digital DNA.",
-    "silent tech chat.",
-    "tech foundation."
+const phrases = [
+    'digital magic.',
+    'geek chic.',
+    'tech poetry.',
+    'creative clicks.',
+    'problem-solving play.',
+    'logic fun.',
+    'debug dance.',
+    'binary banter.',
+    'bug bashing.',
+    'code coffee.',
+    'screen jazz.',
+    'hack joy.',
+    'pixel passion.',
+    'nerd cool.',
+    'byte banter.',
+    'app fiesta.',
+    'brain flex.',
+    'giggle git.',
+    'web vibe.',
+    'byte bliss.'
 ];
 
 window.addEventListener('load', () => {
@@ -29,7 +31,7 @@ window.addEventListener('load', () => {
 
     function typeWriter() {
         if (!hold) {
-            const sentence = codingIsContinuation[index];
+            const sentence = phrases[index];
 
             dynamicEl.innerText = sentence.substring(0, typingIndex + 1);
 
@@ -47,7 +49,7 @@ window.addEventListener('load', () => {
                 typingIndex--;
                 if (typingIndex < 0) {
                     deleting = false;
-                    index = (index + 1) % codingIsContinuation.length;
+                    index = (index + 1) % phrases.length;
                 }
             }
         }
