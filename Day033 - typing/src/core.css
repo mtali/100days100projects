@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+    min-height: 100vh;
+    background-color: #1f1f1f;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: white;
+}
+
+.text > span {
+    color: #bd53ed;
+}
