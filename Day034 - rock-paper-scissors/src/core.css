@@ -11,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: #f6f7fb;
 }
 
@@ -110,5 +111,17 @@ body {
     font-size: 1.25rem;
     margin-top: 1rem;
     pointer-events: none;
+}
+
+.info {
+    font-size: 0.8rem;
+    font-weight: 400;
+    background-color: #f6f7fb;
+    padding: 4px 7px;
+    color: black;
+    border-radius: 1px;
+    margin: 1rem;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
