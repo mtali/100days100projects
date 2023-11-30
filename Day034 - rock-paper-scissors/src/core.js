@@ -33,8 +33,6 @@ optionsImage.forEach((image, index) => {
 
             userResult.src = e.target.querySelector('img').src;
 
-            console.log(userResult)
-
             // Generate a random number between 0 and 2
             let randomIndex = Math.floor(Math.random() * 3);
             cpuResult.src = cpuImages[randomIndex];
