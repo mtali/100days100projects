@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+}
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.time {
+    font-size: 4.5rem;
+    color: #2c3e50;
+}
+
+.bg-red {
+    background-color: #c0392b;
+}
+
+.bg-green {
+    background-color: #27ae60;
+}
+
+.bg-gray {
+    background-color: #7f8c8d;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    padding: 0.8rem 1rem;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 50px;
+}
