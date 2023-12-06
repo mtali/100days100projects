@@ -9,6 +9,7 @@ const reset = document.getElementById('reset');
 setTimer();
 
 function startTimer() {
+    resetTimer();
     timer = setInterval(function () {
         setTimer();
         timeInSeconds--;
@@ -35,8 +36,8 @@ function setTimer() {
     timeEl.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
-start.addEventListener('click', startTimer)
-stop.addEventListener('click', stopTimer)
-reset.addEventListener('click', resetTimer)
+start.addEventListener('click', startTimer);
+pause.addEventListener('click', stopTimer);
+reset.addEventListener('click', resetTimer);
 
 
