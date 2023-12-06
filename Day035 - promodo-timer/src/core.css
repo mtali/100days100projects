@@ -43,6 +43,10 @@ body {
     border-radius: 5px;
 }
 
+.btn:active {
+    scale: 0.96;
+}
+
 .container {
     display: flex;
     flex-direction: column;

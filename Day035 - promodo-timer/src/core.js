@@ -1,23 +1,42 @@
-let timeInSeconds = 25 * 60;
+const promodoSeconds = 25 * 60;
+let timeInSeconds = promodoSeconds;
 const timeEl = document.querySelector('.time');
+let timer;
+const start = document.getElementById('start');
+const pause = document.getElementById('pause');
+const reset = document.getElementById('reset');
 
-setTime();
+setTimer();
 
-const timer = setInterval(function () {
+function startTimer() {
+    timer = setInterval(function () {
+        setTimer();
+        timeInSeconds--;
+        if (timeInSeconds < 0) {
+            clearInterval(timer);
+            timeEl.textContent = "00:00";
+        }
+    }, 1000);
+}
 
-    setTime();
+function stopTimer() {
+    clearInterval(timer);
+}
 
-    timeInSeconds--;
+function resetTimer() {
+    timeInSeconds = promodoSeconds;
+    stopTimer()
+    setTimer()
+}
 
-    if (timeInSeconds < 0) {
-        clearInterval(timer);
-        timeEl.textContent = "00:00";
-    }
-
-}, 1000);
-
-function setTime() {
+function setTimer() {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
     timeEl.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
+
+start.addEventListener('click', startTimer)
+stop.addEventListener('click', stopTimer)
+reset.addEventListener('click', resetTimer)
+
+
