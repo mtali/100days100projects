@@ -45,6 +45,7 @@ body {
 
 .btn:active {
     scale: 0.96;
+    outline: none;
 }
 
 .container {
