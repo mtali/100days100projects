@@ -14,8 +14,13 @@ function startTimer() {
         setTimer();
         timeInSeconds--;
         if (timeInSeconds < 0) {
-            clearInterval(timer);
             timeEl.textContent = "00:00";
+            clearInterval(timer);
+            setTimeout(function () {
+                alert("Time's up!");
+                resetTimer();
+                startTimer();
+            }, 0);
         }
     }, 1000);
 }
