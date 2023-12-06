@@ -9,7 +9,7 @@ const reset = document.getElementById('reset');
 setTimer();
 
 function startTimer() {
-    resetTimer();
+    stopTimer()
     timer = setInterval(function () {
         setTimer();
         timeInSeconds--;
