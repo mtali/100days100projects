@@ -1,3 +1,6 @@
+/*
+    CONTAINER
+ */
 body {
     margin: 0;
     padding: 0;
@@ -19,6 +22,11 @@ body {
     overflow: hidden;
     border: 1px solid red; /* remove this */
 }
+
+
+/*
+    ROADS
+ */
 
 .foreground-container {
     position: absolute;
@@ -62,4 +70,30 @@ body {
     }
 }
 
+
+/*
+    CAR
+ */
+
+.car-container {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 10px;
+    top: 10px;
+    background: #d9d4d4;
+    animation: car-body 1s linear infinite;
+}
+
+@keyframes car-body {
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(7px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
 
