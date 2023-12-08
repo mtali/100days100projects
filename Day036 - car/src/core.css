@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container {
+    min-width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid red; /* remove this */
+}
+
+.foreground-container {
+    position: absolute;
+    width: 1700px;
+    height: 150px;
+    background: #33312b;
+    filter: blur(1px);
+    top: 350px;
+    left: 0;
+    animation: foreground 1s linear infinite;
+}
+
+.street-sideline {
+    position: absolute;
+    width: 1700px;
+    height: 20px;
+    background: white;
+    top: 120px;
+}
+
+.street-middle-line {
+    position: absolute;
+    height: 10px;
+    width: 1700px;
+    background: repeating-linear-gradient(
+            to right,
+            white 0% 5%,
+            #33312b 5% 15%
+    );
+    top: 35px;
+    left: 0;
+}
+
+@keyframes foreground {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -51%;
+    }
+}
+
+
