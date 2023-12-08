@@ -20,7 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border: 1px solid red; /* remove this */
+    border: 2px solid gray; /* remove this */
 }
 
 
