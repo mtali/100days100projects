@@ -80,8 +80,7 @@ body {
     width: 250px;
     height: 250px;
     left: 10px;
-    top: 10px;
-    background: #d9d4d4;
+    top: 7px;
     animation: car-body 1s linear infinite;
 }
 
@@ -90,10 +89,213 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(7px);
+        transform: translateY(5px);
     }
     to {
         transform: translateY(0);
     }
 }
+
+.car-roof {
+    position: absolute;
+    width: 198px;
+    height: 137px;
+    background: black;
+    top: 224px;
+    left: 118px;
+    clip-path: path("M 5 146 C 0 -24 196 -49 229 146 Z");
+}
+
+.car-roof::before {
+    content: "";
+    background: #1D3D78;
+    width: 198px;
+    height: 135px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.car-body {
+    position: absolute;
+    width: 195px;
+    height: 77px;
+    top: 280px;
+    left: 165px;
+    background: #1D3D78;
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid black;
+    border-left: transparent;
+}
+
+.window {
+    position: absolute;
+    width: 119px;
+    height: 33px;
+    background: white;
+    left: 165px;
+    top: 245px;
+    border-radius: 35px 35px 0 0;
+    border: 2px solid black;
+}
+
+.window::before {
+    content: "";
+    height: 33px;
+    width: 2px;
+    background: black;
+    position: absolute;
+    left: 40px;
+    display: block;
+}
+
+.head-light {
+    position: absolute;
+    width: 18px;
+    height: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background: white;
+    top: 297px;
+    left: 329px;
+}
+
+.fog-light {
+    position: absolute;
+    width: 6px;
+    height: 5px;
+    top: 341px;
+    left: 348px;
+    background: white;
+    border-radius: 5px 0 0 5px;
+    border: 2px solid black;
+}
+
+.design-line {
+    position: absolute;
+    width: 86px;
+    height: 2px;
+    top: 329px;
+    left: 200px;
+    background: white;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid black;
+}
+
+.design-line::before {
+    content: "";
+    position: absolute;
+    width: 86px;
+    height: 2px;
+    background: white;
+    top: 5px;
+    left: 25px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid black;
+}
+
+.design-line::after {
+    content: "";
+    position: absolute;
+    width: 86px;
+    height: 2px;
+    background: white;
+    top: 11px;
+    left: 40px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid black;
+}
+
+.front-tire {
+    position: absolute;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background: white;
+    border: 7px solid black;
+    top: 330px;
+    left: 290px;
+    animation: tire-animation 0.5s linear infinite;
+}
+
+.front-tire::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 7px solid gray;
+}
+
+.front-tire::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    filter: blur(2px);
+}
+
+@keyframes tire-animation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.back-tire {
+    position: absolute;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background: white;
+    border: 7px solid black;
+    top: 330px;
+    left: 150px;
+    animation: tire-animation 0.5s linear infinite;
+}
+
+.back-tire::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 7px solid gray;
+}
+
+.back-tire::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    filter: blur(2px);
+}
+
 
